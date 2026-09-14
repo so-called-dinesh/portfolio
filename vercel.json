@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "**/*", "use": "@vercel/static" }
+  ],
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/resume.pdf",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

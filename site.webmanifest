@@ -1,0 +1,14 @@
+{
+  "short_name": "Dinesh B.",
+  "name": "Dinesh Shivaji Bodhapalle — AI-Powered Backend Engineer",
+  "description": "Java/Spring Boot backend engineer portfolio. REST APIs, microservices, Kafka-based event-driven applications.",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }],
+  "start_url": "/",
+  "background_color": "#0b0b0e",
+  "theme_color": "#0b0b0e",
+  "display": "standalone"
+}
