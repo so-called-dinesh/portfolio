@@ -1,6 +1,6 @@
 # Dinesh Bodhapalle — Portfolio
 
-Single-page portfolio for **Dinesh Shivaji Bodhapalle** — AI-Powered Backend Engineer (Java / Spring Boot).
+Single-page portfolio for **Dinesh Shivaji Bodhapalle** — AI Fullstack Developer (Java / Spring Boot backend + React frontend).
 
 ## Stack
 
@@ -35,5 +35,5 @@ Hosted on **Vercel**, deployed automatically by a **GitHub Actions** workflow (`
 
 ## TODO before launch
 
-- [ ] Replace `resume.pdf` placeholder with the real file
 - [ ] Point Pulse-Grid / Cart-Forge GitHub buttons at the real repo URLs in `index.html`
+- [ ] Update the resume PDF headline to "AI Fullstack Developer" to match the site
