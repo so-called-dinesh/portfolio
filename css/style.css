@@ -1040,6 +1040,164 @@ i, em {
 .site-footer a:hover { color: var(--accent); }
 
 /* ==========================================================================
+   HUMAN TOUCHES (progress, cursor, tagline, pull-quote, signature, toast,
+   spotlight, code caret, footer clock)
+   ========================================================================== */
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  z-index: 210;
+  transition: width 0.12s linear;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 220;
+  opacity: 0;
+}
+.cursor-dot { background: var(--accent); }
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(239, 173, 63, 0.55);
+  transition:
+    width 0.25s var(--ease),
+    height 0.25s var(--ease),
+    border-color 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.12s ease-out;
+}
+.cursor-ring.is-hover {
+  width: 48px;
+  height: 48px;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+html.js-cursor .cursor-dot,
+html.js-cursor .cursor-ring { opacity: 1; }
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+.hero__tagline {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.hero__tagline em { color: var(--accent); font-style: normal; }
+
+.pull-quote {
+  margin: 30px 0 0;
+  padding: 4px 0 4px 22px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  color: var(--ink-dim);
+  line-height: 1.45;
+}
+.pull-quote i { color: var(--accent); }
+
+.code-caret {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  margin-left: 5px;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: blink 1.1s steps(1, end) infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.contact__row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.contact__row .btn--sm { padding: 9px 18px; font-size: 0.8rem; }
+
+.signature {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  line-height: 0.9;
+  color: var(--accent);
+  transform: rotate(-3deg) scale(0.75);
+  opacity: 0;
+  transition: transform 1s var(--ease), opacity 0.7s ease;
+}
+.signature.in-view { transform: rotate(-3deg) scale(1); opacity: 1; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, 24px);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 999px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s var(--ease);
+  z-index: 230;
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+.cert,
+.leadership__item,
+.project__panel { position: relative; overflow: hidden; }
+.cert::after,
+.leadership__item::after,
+.project__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(239, 173, 63, 0.12),
+    transparent 62%
+  );
+}
+.cert:hover::after,
+.leadership__item:hover::after,
+.project__panel:hover::after { opacity: 1; }
+
+.site-footer__note {
+  width: 100%;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
    SCROLL-REVEAL
    ========================================================================== */
 
@@ -1064,4 +1222,7 @@ i, em {
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee__track { animation: none; }
   .btn, .leadership__item, .hero__code { transition: none; }
+  .code-caret { animation: none; opacity: 0.9; }
+  .signature { transition: none; opacity: 1; transform: rotate(-3deg) scale(1); }
+  .cursor-dot, .cursor-ring { display: none; }
 }

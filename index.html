@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
@@ -62,6 +62,10 @@
 </head>
 
 <body>
+
+  <div class="progress" id="progressBar" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -104,6 +108,10 @@
           event-driven systems, and growing React frontends.
         </p>
 
+        <p class="hero__tagline reveal" data-delay="200">
+          I write systems that don't fall over at <em>3 AM</em>.
+        </p>
+
         <div class="hero__cta reveal" data-delay="240">
           <a class="btn btn--primary" href="#projects">View Projects</a>
           <a class="btn btn--ghost" href="#contact">Contact</a>
@@ -139,7 +147,7 @@
     <span class="tok-f">riskPredictor</span>.predict(
       event.biometrics());
   }
-}</code></pre>
+}<span class="code-caret" aria-hidden="true"></span></code></pre>
         </div>
       </div>
     </section>
@@ -193,6 +201,10 @@
               foundation (250+ LeetCode problems). I'm growing into the front of the stack
               too: JavaScript, Python, and React.js are next on the roadmap.
             </p>
+
+            <blockquote class="pull-quote reveal">
+              Boring code. Reliable systems. <i>One more coffee</i> before every commit.
+            </blockquote>
 
             <div class="about__edu reveal">
               <p class="about__edu-deg">B.Tech — Computer Science (Artificial Intelligence)</p>
@@ -518,9 +530,14 @@ ai-service:
         </header>
 
         <div class="contact reveal" data-delay="160">
-          <a class="contact__email" href="mailto:bodhapalleds2022@gmail.com">
-            bodhapalleds2022@gmail.com
-          </a>
+          <div class="contact__row">
+            <a class="contact__email" href="mailto:bodhapalleds2022@gmail.com" id="emailLink">
+              bodhapalleds2022@gmail.com
+            </a>
+            <button class="btn btn--ghost btn--sm" id="copyEmail" type="button">Copy email</button>
+          </div>
+
+          <p class="signature" aria-hidden="true">Dinesh</p>
 
           <ul class="contact__links">
             <li><a href="https://www.linkedin.com/in/dineshbodhapalle" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -530,6 +547,7 @@ ai-service:
 
           <p class="contact__note">Pune, India &middot; Available for internships &amp; backend roles</p>
         </div>
+        <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
       </div>
     </section>
   </main>
@@ -537,7 +555,8 @@ ai-service:
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <p>&copy; <span id="year"></span> Dinesh Shivaji Bodhapalle. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>&copy; <span id="year"></span> Dinesh Shivaji Bodhapalle &middot; Pune, India, <span id="localTime">IST</span></p>
+      <p class="site-footer__note">Code by day, Kho-Kho sprints by evening.</p>
       <a class="site-footer__top" href="#hero">Back to top &uarr;</a>
     </div>
   </footer>
