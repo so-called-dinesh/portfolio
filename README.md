@@ -28,7 +28,7 @@ npm start        # webpack-dev-server at http://localhost:8080
 
 ## Deployment
 
-Hosted on **Vercel**. Connected to this GitHub repo — auto-deploys to production on every push to `main`.
+Hosted on **Vercel**, deployed automatically by a **GitHub Actions** workflow (`.github/workflows/deploy.yml`) on every push to `main`. Deploys are authenticated via the `VERCEL_TOKEN` repo secret.
 
 - Production URL: https://portfolio-dinesh-5a8d.vercel.app
 - Inspect deployments: https://vercel.com/dinesh-5a8d/portfolio
